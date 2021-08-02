@@ -106,6 +106,17 @@ const formatDate = (date) => {
     return date.getFullYear() + '-' + month + '-' + day;
 }
 
+
+const exportCSV = (selectionOnly) => {
+    dt.current.exportCSV({ selectionOnly });
+}
+
+const header = (
+    <div className="p-d-flex p-ai-center export-buttons">
+      <Button type="button" icon="pi pi-file-o" onClick={() => exportCSV(false)} className="p-mr-2" data-pr-tooltip="CSV" />
+    </div>
+);
+
     return (
 
         <div>
@@ -113,7 +124,7 @@ const formatDate = (date) => {
         <div className="card">
             
             <h5>Basic</h5>
-            <DataTable value={originalAccountsData} ref={dt} paginator
+            <DataTable value={originalAccountsData} ref={dt} header={header} paginator
                 paginatorTemplate="CurrentPageReport FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink RowsPerPageDropdown"
                 currentPageReportTemplate="Showing {first} to {last} of {totalRecords}"  first={pageNationConfig.pageIndex} rows={pageNationConfig.pageSize} onPage={onCustomPage}
                 paginatorLeft={paginatorLeft} paginatorRight={paginatorRight}>
