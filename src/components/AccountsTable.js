@@ -106,11 +106,12 @@ const formatDate = (date) => {
     return date.getFullYear() + '-' + month + '-' + day;
 }
 
-
+// export csv file 
 const exportCSV = (selectionOnly) => {
     dt.current.exportCSV({ selectionOnly });
 }
 
+// header button for export csv
 const header = (
     <div className="p-d-flex p-ai-center export-buttons">
       <Button type="button" icon="pi pi-file-o" onClick={() => exportCSV(false)} className="p-mr-2" data-pr-tooltip="CSV" />
